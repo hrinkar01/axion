@@ -25,38 +25,34 @@ Modern applications face two compounding crises:
 **AXION bifurcates incoming traffic at the network edge into two distinct pipelines:**
 
 ```
-                                  [ INCOMING INTERNET TRAFFIC ]
-                                                │
-                                                ▼
-┌──────────────────────────────────────────────────────────────────────────────────────────┐
-│                               1. AXION ZERO-TRUST EDGE GATEWAY                           │
-│                     (Cloudflare Worker / Pyodide / Streaming Reverse Proxy)              │
-│                                                                                          │
-│   • Shannon Entropy & Secret Scrubber (Masks live credentials & PII in real-time)        │
-│   • JA4+ TLS & HTTP/2 Frame Fingerprinting (Identifies automated tools during handshake) │
-│   • Semantic Classifier (Distinguishes legitimate bug reports from active exploitation)  │
-└───────────────────────────────────────────────┬──────────────────────────────────────────┘
-                                                │
-                 ┌──────────────────────────────┴──────────────────────────────┐
-                 │                                                             │
-                 ▼ [Legitimate Vulnerability Report]                           ▼ [Live Exploitation / Scanner Probe]
-┌──────────────────────────────────────────────┐              ┌──────────────────────────────────────────────┐
-│        2. ZERO-TRUST TRIAGE PIPELINE         │              │          3. GENERATIVE AI HONEYNET           │
-│                                              │              │                                              │
-│ • Semantic Deduplication (Vector Embeddings) │              │ • Generative Reality Engine (Local SLM/LLM)  │
-│ • Multi-Source Validation (NVD, OSV, KEV)    │              │ • Synthetic Shadow Services (Fake DBs & APIs)│
-│ • Automated CVSS v4.0 & EPSS Scoring         │              │ • Adaptive TCP Tarpit (Drains Bot Resources) │
-│ • Dispatches Verified Tickets to Maintainers │              │ • Isolated Payload Quarantine Sandbox        │
-└──────────────────────────────────────────────┘              └──────────────────────┬───────────────────────┘
-                                                                                     │
-                                                                                     ▼
-                                                               ┌──────────────────────────────────────────────┐
-                                                               │          4. AUTO-IMMUNITY PIPELINE           │
-                                                               │                                              │
-                                                               │ • Synthesizes instant eBPF packet filters    │
-                                                               │ • Deploys automated Cloudflare / WAF rules   │
-                                                               │ • Auto-generates community YARA & Sigma rules│
-                                                               └──────────────────────────────────────────────┘
+                     [ INCOMING INTERNET TRAFFIC ]
+                                   │
+                                   ▼
+          ┌──────────────────────────────────────────────────┐
+          │         1. ZERO-TRUST EDGE GATEWAY               │
+          │  • Real-time Secret & PII Scrubber               │
+          │  • JA4+ Fingerprinting & Intent Classifier       │
+          └────────────────────────┬─────────────────────────┘
+                                   │
+                 ┌─────────────────┴─────────────────┐
+                 │                                   │
+        [Legitimate Report]                 [Malicious / Scanner]
+                 │                                   │
+                 ▼                                   ▼
+  ┌──────────────────────────────┐    ┌──────────────────────────────┐
+  │  2. ZERO-TRUST TRIAGE        │    │  3. GENERATIVE HONEYNET      │
+  │ • Semantic Deduplication     │    │ • Synthetic Shadow Services  │
+  │ • Multi-Source CVE Validator │    │ • Generative Reality Engine  │
+  │ • Automated CVSS/EPSS Score  │    │ • Adaptive Resource Tarpit   │
+  └──────────────────────────────┘    └──────────────┬───────────────┘
+                                                     │
+                                                     ▼
+                                      ┌──────────────────────────────┐
+                                      │  4. AUTO-IMMUNITY PIPELINE   │
+                                      │ • Synthesize eBPF Filters    │
+                                      │ • Auto-Deploy WAF Rules      │
+                                      │ • YARA / Sigma Threat Feeds  │
+                                      └──────────────────────────────┘
 ```
 
 ---
@@ -225,22 +221,12 @@ axion tarpit list
 
 ---
 
-## 🔌 Integration with Vulnerability Platforms
-
-AXION is architected to plug directly into open-source vulnerability management suites:
-
-* **OWASP BLT (Bug Logging Tool):** Acts as the high-throughput edge pre-processor for BLT, replacing manual triage queues with automated PII scrubbing, NVD verification, and anti-spam duplicate detection.
-* **DefectDojo & Jira:** Automatically synchronizes verified findings in standardized SARIF format while discarding quarantined honeypot traffic.
-* **SIEM / Webhook Fan-out:** Broadcasts forensic attribution alerts (JA4 signatures, attacker IPs) to Slack, Discord, or Datadog in real time.
-
----
-
 ## 🗺️ Roadmap
 
-- [x] **Phase 1: Foundation (Current)**
-  - [x] Edge triage gateway architecture & Pyodide worker runtime
-  - [x] Streaming Shannon entropy secret scrubber
-  - [x] Dynamic D1/KV telemetry & latency percentiles
+- [ ] **Phase 1: Foundation**
+  - [ ] Edge triage gateway architecture & Pyodide worker runtime
+  - [ ] Streaming Shannon entropy secret scrubber
+  - [ ] Dynamic D1/KV telemetry & latency percentiles
 - [ ] **Phase 2: Generative AI Deception Engine**
   - [ ] Local SLM-powered terminal & REST endpoint simulator
   - [ ] Adaptive TCP tarpit with generative labyrinth routing
@@ -261,9 +247,9 @@ AXION is architected to plug directly into open-source vulnerability management 
 Contributions to AXION are welcome! Whether you are writing low-level edge workers, fine-tuning deception models, or improving triage validation, please feel free to open an issue or submit a pull request.
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/GenerativeTarpit`)
-3. Commit your Changes (`git commit -m 'Add adaptive TCP tarpit engine'`)
-4. Push to the Branch (`git push origin feature/GenerativeTarpit`)
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
 ---
